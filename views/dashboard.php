@@ -1,4 +1,4 @@
-<h4 class="page-title">Dashboard <?php echo $result; ?></h4>
+<h4 class="page-title">Dashboard</h4>
 <div class="col-md-12">
 	<div class="card">
 		<div class="card-header ">
