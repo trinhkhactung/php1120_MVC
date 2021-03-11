@@ -15,8 +15,30 @@
 		}
 
 		public function studnts(){
-			$result = $this->students->index();
-			include_once 'views/dashboard.php';
+			if (isset($_GET['method'])) {
+				$method = $_GET['method'];
+			}else{
+				$method = 'index';
+			}
+			switch ($method) {
+				case 'index':
+					$result = $this->students->index();
+					include_once 'views/dashboard.php';
+					break;
+				
+				case 'destroy':
+					if (isset($_GET['id'])) {
+						$id = (int)$_GET['id'];
+						$destroy = $this->students->destroy($id);
+					}
+					header('Location: index.php');
+					break;
+
+				default:
+					# code...
+					break;
+			}
+			
 		}
 
 	}

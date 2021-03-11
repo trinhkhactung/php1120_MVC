@@ -10,29 +10,35 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">First</th>
-						<th scope="col">Last</th>
-						<th scope="col">Handle</th>
+						<th scope="col">Name</th>
+						<th scope="col">Faculty</th>
+						<th scope="col">Phone</th>
+						<th scope="col">Email</th>
+						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td colspan="2">Larry the Bird</td>
-						<td>@twitter</td>
-					</tr>
+					<?php  
+					$stt = 0;
+						foreach ($result as $key => $value) {
+							$stt += 1;
+					?>
+						<tr>
+							<td><?php echo $stt; ?></td>
+							<td><?php echo $value['name']; ?></td>
+							<td><?php echo $value['title']; ?></td>
+							<td><?php echo $value['phone']; ?></td>
+							<td><?php echo $value['email']; ?></td>
+							<td>
+								<a href="index.php?page=dashboard&method=destroy&id=<?php echo $value['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa học viên?');" class="btn btn-danger">
+									Xóa
+								</a>
+							</td>
+						</tr>
+					<?php
+						}
+					?>
+					
 				</tbody>
 			</table>
 		</div>
