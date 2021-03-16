@@ -3,10 +3,21 @@
 	<div class="card">
 		<div class="card-header ">
 			<h4 class="card-title">Table</h4>
-			<p class="card-category">Users Table</p>
+			<form action="" method="POST" role="form">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="number" name="key" class="form-control" id="" placeholder="Input phone search">
+						</div>
+					</div>
+					<div class="col-md-2" style="padding-top: 15px;">
+						<button type="submit" name="search-phone" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</form>
 		</div>
 		<div class="card-body">
-			<table class="table table-head-bg-success table-striped table-hover">
+			<table id="list-students" class="table table-head-bg-success table-striped table-hover">
 				<thead>
 					<tr>
 						<th scope="col">#</th>

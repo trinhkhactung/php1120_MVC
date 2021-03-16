@@ -5,20 +5,18 @@
 	 */
 	class Connect
 	{
-		private const localhost = 'localhost';
+		private const dns = 'mysql:host=localhost;dbname=php1120e_manager';
 		private const user = 'root';
 		private const passw = '';
-		private const db = 'php1120e_manager';
-		protected $conn = null;
+		protected $pdo = null;
 
 		function __construct()
 		{
-			$this->conn = mysqli_connect(self::localhost, self::user, self::passw, self::db);
-
-			if ($this->conn) {
-				mysqli_set_charset($this->conn, 'utf8');
-			}else{
-				echo "Can't connect database";
+			try {
+				$this->pdo = new PDO(self::dns, self::user, self::passw);
+				$this->pdo->query("SET NAMES utf8");
+			} catch (PDOException $e) {
+				echo $e->getMessage();	
 				exit();
 			}
 		}

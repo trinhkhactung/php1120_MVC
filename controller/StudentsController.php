@@ -23,6 +23,10 @@
 			switch ($method) {
 				case 'index':
 					$result = $this->students->index();
+					if (isset($_POST['search-phone'])) {
+						$phone = '%'.$_POST['key'].'%';
+						$result = $this->students->searchStudents($phone);
+					}
 					include_once 'views/dashboard.php';
 					break;
 				
